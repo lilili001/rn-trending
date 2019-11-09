@@ -4,17 +4,17 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import BottonTabBar from '../navigator/HomeBottonNavigator'
-
-class HomePage extends Component {
+class MyPage extends Component {
     render() {
         return (
-            <View style={styles.container}><Text style={styles.welcome}>Home</Text></View>
+            <View style={styles.container}>
+                <Text style={styles.welcome}>MyPage</Text>
+            </View>
         );
     }
 }
 
-export default HomePage;
+export default MyPage;
 
 const styles = StyleSheet.create({
     container:{
