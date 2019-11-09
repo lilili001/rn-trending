@@ -10,9 +10,9 @@ class NavigationUtil{
      * @param page 要跳转的页面名
      */
     static goPage(page,params){
-        const {navigation} = NavigationUtil.navigation;
+        const {navigation} = NavigationUtil;
         if(!navigation) console.error('NavigationUtil.navigation can not be null');
-        navigation.navigate(page,...params)
+        navigation.navigate(page,params)
     }
 
     /**

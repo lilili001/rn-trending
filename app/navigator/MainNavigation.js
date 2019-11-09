@@ -11,13 +11,15 @@ import {
     DrawerItems
 } from 'react-navigation';
 
+import WelcomePage from '../page/welcome'
+import HomePage from '../page/home'
 import DetailPage from '../page/detail'
 import BottomTabNavigator from './BottomNavigator'
 
 //主路由
 const MainNavigator = createStackNavigator({
     HomePage:{
-        screen:BottomTabNavigator,
+        screen:HomePage,
         navigationOptions:{
             header:null
         }

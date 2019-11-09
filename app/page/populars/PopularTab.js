@@ -12,7 +12,7 @@ class PopularTab extends Component {
         return (
             <View>
                 <Text>PopularTab</Text>
-                <Button title="点击我" onPress={()=>this.props.navigation.navigate('DetailPage',{name:'动态参数name'})}/>
+                <Button title="点击我" onPress={()=>NavigationUtil.goPage('DetailPage',{name:'动态参数name'})}/>
             </View>
         );
     }
