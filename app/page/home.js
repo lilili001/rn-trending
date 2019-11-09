@@ -3,12 +3,10 @@
  */
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import BottomNavigator from '../navigator/BottomNavigator'
 class HomePage extends Component {
     render() {
-        return (
-            <View style={styles.container}><Text style={styles.welcome}>Home</Text></View>
-        );
+        return <BottomNavigator/>
     }
 }
 
@@ -16,10 +14,7 @@ export default HomePage;
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'#f5fcff'
+
     },
     welcome:{
         fontSize:20,

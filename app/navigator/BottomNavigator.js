@@ -19,11 +19,11 @@ import TrendingPage from '../page/trending'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
 
-import TopNavigator from './TopNavigator'
 
-const HomeBottomNavigator = createBottomTabNavigator({
+
+const HomeBottomNavigator = {
     PopularPage:{
-        screen:TopNavigator,
+        screen:PopularPage,
         navigationOptions:{
             tabBarLabel:'最热',
             tabBarIcon:({tintColor})=><MaterialIcon name="whatshot" size={26} style={{color:tintColor}}/>
@@ -50,7 +50,12 @@ const HomeBottomNavigator = createBottomTabNavigator({
             tabBarIcon:({tintColor})=><Entypo name="user" size={26} style={{color:tintColor}}/>
         }
     }
-});
+};
+
+//动态导航器
+const {PopularPage:Popular,TrendingPage:Trending,FavoritePage:Favorite,MyPage:My} = HomeBottomNavigator;
+const tabs = {Popular,Trending,Favorite,My};
+Popular.navigationOptions.tabBarLabel = 'Hot';
 
 //如果要插入到页面中就需要用 createAppContainer
-export default createAppContainer(HomeBottomNavigator)
+export default createAppContainer(createBottomTabNavigator(tabs))

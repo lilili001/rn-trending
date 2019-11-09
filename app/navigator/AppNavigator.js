@@ -15,7 +15,7 @@ import WelcomePage from '../page/welcome'
 import HomePage from '../page/home'
 
 
-import BottomTabNavigator from './BottonNavigator'
+import BottomTabNavigator from './BottomNavigator'
 
 
 //导航分两part , 首页之前 首页之后
@@ -29,14 +29,8 @@ const InitNavigator = createStackNavigator({
 });
 
 const MainNavigator = createStackNavigator({
-    BottomTabNavigator:{
-        screen:BottomTabNavigator,
-        navigationOptions: {
-
-        }
-    },
     HomePage:{
-        screen:HomePage,
+        screen:BottomTabNavigator,
         navigationOptions:{
             header:null
         }

@@ -3,12 +3,12 @@
  */
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import TopNavigator from '../navigator/TopNavigator'
 class PopularPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>popular</Text>
+                <TopNavigator/>
             </View>
         );
     }
@@ -19,9 +19,7 @@ export default PopularPage;
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'#f5fcff'
+        marginTop:30
     },
     welcome:{
         fontSize:20,
