@@ -18,9 +18,12 @@ import PopularPage from '../page/popular'
 import TrendingPage from '../page/trending'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
+
+import TopNavigator from './TopNavigator'
+
 const HomeBottomNavigator = createBottomTabNavigator({
     PopularPage:{
-        screen:PopularPage,
+        screen:TopNavigator,
         navigationOptions:{
             tabBarLabel:'最热',
             tabBarIcon:({tintColor})=><MaterialIcon name="whatshot" size={26} style={{color:tintColor}}/>

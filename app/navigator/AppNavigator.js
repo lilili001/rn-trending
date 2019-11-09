@@ -14,7 +14,9 @@ DrawerItems
 import WelcomePage from '../page/welcome'
 import HomePage from '../page/home'
 
+
 import BottomTabNavigator from './BottonNavigator'
+
 
 //导航分两part , 首页之前 首页之后
 const InitNavigator = createStackNavigator({

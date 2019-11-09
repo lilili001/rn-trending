@@ -4,8 +4,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import BottonTabBar from '../navigator/HomeBottonNavigator'
-
 class HomePage extends Component {
     render() {
         return (
