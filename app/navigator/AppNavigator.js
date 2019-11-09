@@ -12,11 +12,8 @@ DrawerItems
 } from 'react-navigation';
 
 import WelcomePage from '../page/welcome'
-import HomePage from '../page/home'
 
-
-import BottomTabNavigator from './BottomNavigator'
-
+import MainNavigator from './MainNavigation'
 
 //导航分两part , 首页之前 首页之后
 const InitNavigator = createStackNavigator({
@@ -26,15 +23,6 @@ const InitNavigator = createStackNavigator({
             header:null //隐藏头部
         }
     }
-});
-
-const MainNavigator = createStackNavigator({
-    HomePage:{
-        screen:BottomTabNavigator,
-        navigationOptions:{
-            header:null
-        }
-    },
 });
 
 //通过switchNavigator 来区分两part

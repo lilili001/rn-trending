@@ -1,4 +1,5 @@
 import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
 /**
  * Created by miyaye on 2019/11/9.
  */
@@ -12,37 +13,46 @@ createDrawerNavigator,
 DrawerItems
 } from 'react-navigation';
 
-import Pop1 from '../page/populars/pop1'
-import Pop2 from '../page/populars/pop2'
-import Pop3 from '../page/populars/pop3'
+import PopularTab from '../page/populars/PopularTab'
 
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
 
-const TopNavigator = {
-    pop1Page:{
-        screen:Pop1,
+ //动态生成导航
+var tabNames = ['java','php','html5','vue','react','react-native'];
+const tabs = {};
+tabNames.forEach((item,index)=>{
+    tabs[`tab${index}`] = {
+        screen:props => <PopularTab {...props} tabLabel={item}/>,
         navigationOptions:{
-            title:'pop1'
+            title:item
         }
-    },
-    pop2Page:{
-        screen:Pop2,
-        navigationOptions:{
-            title:'pop2'
-        }
-    },
-    pop3Page:{
-        screen:Pop3,
-        navigationOptions:{
-            title:'pop3'
+    }
+});
+
+const topNavConfig = {
+    tabBarOptions:{
+        tabStyle:{
+            minWidth:50,
+            marginTop:30
+        },
+        upperCaseLabel:false,
+        scrollEnabled:true,//滑动切换tab,
+        style:{
+            backgroundColor:'#5fbef4'
+        },
+        indicatorStyle:{
+            height:2,
+            backgroundColor:'#ffffff'
+        },
+        labelStyle:{
+            fontSize:13,
+            marginTop:6,
+            marginBottom:6
         }
     }
 };
 
-const {pop1Page,pop2Page,pop3Page} = TopNavigator;
-const tabs = {pop1Page,pop2Page,pop3Page};
-pop1Page.navigationOptions.title='热门景点'
-
 //如果要插入到页面中就需要用 createAppContainer
-export default createAppContainer(createMaterialTopTabNavigator(tabs))
+export default createAppContainer(createMaterialTopTabNavigator(tabs,topNavConfig));
+
