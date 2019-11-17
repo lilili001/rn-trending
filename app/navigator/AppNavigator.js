@@ -26,11 +26,14 @@ const InitNavigator = createStackNavigator({
 });
 
 //通过switchNavigator 来区分两part
-export default createAppContainer(createSwitchNavigator({
-    Init: InitNavigator,
-    Main: MainNavigator
-}, {
-    navigationOptions:{
-        header:null
+export default createAppContainer(createSwitchNavigator(
+    {
+        Init: InitNavigator,
+        Main: MainNavigator
+    },
+    {
+        navigationOptions:{
+            header:null
+        }
     }
-}))
+))
