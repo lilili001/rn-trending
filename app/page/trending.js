@@ -3,26 +3,24 @@
  */
 import React, {Component} from 'react';
 import { StyleSheet,Button, Text, View } from 'react-native';
+import {connect} from 'react-redux'
 
 class TrendingPage extends Component {
     render() {
-        const {navigation} = this.props;
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>TrendingPage</Text>
-                <Button title={"修改主题"} onPress={()=>navigation.setParams({
-                    name:'alice',
-                    theme:{
-                        tintColor:'red',
-                        updateTime:Date.now()
-                    }
-                })}></Button>
+                <Button title={"修改主题"} onPress={()=> this.props.dispatch({type:'themeChange',themeColor:'orange'})}></Button>
             </View>
         );
     }
 }
 
-export default TrendingPage;
+const mapDispatchToProps = dispatch => ({
+    onThemeChange : (themeColor)=> dispatch({type:'themeChange',themeColor})
+})
+
+export default connect()(TrendingPage);
 
 const styles = StyleSheet.create({
     container:{

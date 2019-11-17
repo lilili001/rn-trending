@@ -13,13 +13,14 @@ DrawerItems,
 BottomTabBar
 } from 'react-navigation';
 
+import {connect} from 'react-redux'
+
 import FavoritePage from '../page/favorite'
 import MyPage from '../page/my'
 import PopularPage from '../page/popular'
 import TrendingPage from '../page/trending'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
-import {connect} from 'react-redux'
 import TopNavigator from './TopNavigator'
 
 const HomeBottomNavigator = {
@@ -53,18 +54,22 @@ const HomeBottomNavigator = {
     }
 };
 
-export default class DynamicBottomNavigator extends Component{
+ class DynamicBottomNavigator extends Component{
     constructor(props, context)
     {
         super(props, context);
+        console.disableYellowBox = true;
     }
     _tabNavigator(){
+        if(this.Tabs) {
+            return this.Tabs;
+        }
         //动态导航器
         const {PopularPage:Popular,TrendingPage:Trending,FavoritePage:Favorite,MyPage:My} = HomeBottomNavigator;
         const tabs = {Popular,Trending,Favorite,My};
         //Popular.navigationOptions.tabBarLabel = 'Hot';
         return this.Tabs = createAppContainer(createBottomTabNavigator(tabs,{
-            tabBarComponent:TabBarComponent
+            tabBarComponent:props=><TabBarComponent themeColor={this.props.themeColor} {...props}/>
             }
         ))
     }
@@ -73,26 +78,16 @@ export default class DynamicBottomNavigator extends Component{
         return <Tab/>
     }
 }
-
+const mapStateToProps = (state)=> {
+     console.log('接受到的state:',state)
+     return {
+         themeColor:state.theme.themeColor
+     }
+}
+export default connect(mapStateToProps)(DynamicBottomNavigator)
 
 class TabBarComponent extends Component{
-    constructor(props, context) {
-        super(props, context);
-        console.disableYellowBox = true;
-        this.theme={
-            tintColor:props.activeTintColor,
-            updateTime:new Date().getTime()
-        }
-    }
     render(){
-        const {routes,index} = this.props.navigation.state;
-        if(routes[index]['params']) {
-            const {theme} = routes[index]['params'];
-            //以最新的更新时间为主 防止被其他tab之前的修改覆盖掉
-            if(theme && theme.updateTime > this.theme.updateTime){
-                this.theme = theme;
-            }
-        }
-        return <BottomTabBar {...this.props} activeTintColor={this.theme.tintColor || this.props.activeTintColor}/>
+        return <BottomTabBar {...this.props} activeTintColor={this.props.themeColor}/>
     }
 }

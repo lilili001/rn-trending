@@ -1,10 +1,11 @@
 const defaultState = {
-    theme:'blue'
+    themeColor:'#cc0000'
 };
 export default function onAction(state=defaultState , action) {
+    console.log(action)
     switch (action.type){
         case 'themeChange':
-            return {...state, theme:action.theme};
+            return {...state, themeColor:action.themeColor};
         default:
             return state;
     }
