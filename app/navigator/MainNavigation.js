@@ -14,6 +14,7 @@ import {
 import HomePage from '../page/home'
 import DetailPage from '../page/detail'
 import FetchDemo from '../page/fetchDemo'
+import DataStoreDemo from '../page/dataStoreDemo'
 
 //主路由
 const MainNavigator = createStackNavigator({
@@ -28,7 +29,10 @@ const MainNavigator = createStackNavigator({
     },
     FetchDemo:{
         screen:FetchDemo
-    }
+    },
+    DataStoreDemo:{
+        screen:DataStoreDemo
+    },
 });
 
 //通过switchNavigator 来区分两part

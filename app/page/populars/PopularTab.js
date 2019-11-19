@@ -14,6 +14,7 @@ class PopularTab extends Component {
                 <Text>PopularTab</Text>
                 <Button title="点击我" onPress={()=>NavigationUtil.goPage('DetailPage',{name:'动态参数name'})}/>
                 <Button title="fetch 使用" onPress={()=>NavigationUtil.goPage('FetchDemo')}></Button>
+                <Button title="datastore 使用" onPress={()=>NavigationUtil.goPage('DataStoreDemo')}></Button>
             </View>
         );
     }
