@@ -11,10 +11,9 @@ import {
     DrawerItems
 } from 'react-navigation';
 
-import WelcomePage from '../page/welcome'
 import HomePage from '../page/home'
 import DetailPage from '../page/detail'
-import BottomTabNavigator from './BottomNavigator'
+import FetchDemo from '../page/fetchDemo'
 
 //主路由
 const MainNavigator = createStackNavigator({
@@ -26,6 +25,9 @@ const MainNavigator = createStackNavigator({
     },
     DetailPage:{
         screen:DetailPage,
+    },
+    FetchDemo:{
+        screen:FetchDemo
     }
 });
 
